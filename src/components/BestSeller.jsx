@@ -7,8 +7,6 @@ const BestSeller = () => {
   const { products } = useContext(ShopContext);
   const bestProducts = products.filter((item) => item.bestseller).slice(0, 5);
 
-  console.log(bestProducts);
-
   return (
     <div className="my-10">
       <div className="text-center py-8 text-xl sm:text-2xl md:text-3xl">

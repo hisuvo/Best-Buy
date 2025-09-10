@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import LatestCollection from "../components/LatestCollection";
 import BestSeller from "../components/BestSeller";
 import OurPolice from "../components/OurPolice";
+import NewsLetterBox from "../components/common/NewsLetterBox";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <LatestCollection />
       <BestSeller />
       <OurPolice />
+      <NewsLetterBox />
     </div>
   );
 };
