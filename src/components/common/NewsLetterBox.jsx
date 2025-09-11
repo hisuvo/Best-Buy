@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 const NewsLetterBox = () => {
   const onSubmitHandle = (event) => {
@@ -27,12 +28,7 @@ const NewsLetterBox = () => {
           placeholder="Enter your email"
           required
         />
-        <button
-          className="bg-black text-white text-xs px-10 py-4"
-          type="submit"
-        >
-          SUBSCRIBE
-        </button>
+        <Button>SUBSCRIBE</Button>
       </form>
     </div>
   );
