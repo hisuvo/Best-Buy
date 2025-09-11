@@ -1,7 +1,7 @@
 import Title from "./common/Title";
-import BestItem from "./BestItem";
 import { useContext } from "react";
 import ShopContext from "../context/ShopContext";
+import ProductItem from "./ProductItem";
 
 const BestSeller = () => {
   const { products } = useContext(ShopContext);
@@ -20,7 +20,7 @@ const BestSeller = () => {
       {/* Render Best Selling Products */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
         {bestProducts.map((product) => (
-          <BestItem
+          <ProductItem
             key={product._id}
             id={product._id}
             img={product.image[0]}

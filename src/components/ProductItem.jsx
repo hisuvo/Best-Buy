@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import ShopContext from "../context/ShopContext";
 import { Link } from "react-router";
 
-const BestItem = ({ id, img, name, price }) => {
+const ProductItem = ({ id, img, name, price }) => {
   const { currency } = useContext(ShopContext);
+
   return (
     <Link className="text-gray-700 cursor-pointer" to={`/product/:${id}`}>
       <div className="overflow-hidden ">
@@ -22,4 +23,4 @@ const BestItem = ({ id, img, name, price }) => {
   );
 };
 
-export default BestItem;
+export default ProductItem;
