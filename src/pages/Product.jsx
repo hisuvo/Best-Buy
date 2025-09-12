@@ -4,6 +4,7 @@ import ShopContext from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Button from "../components/common/Button";
 import Title from "../components/common/Title";
+import RelatedProduct from "../components/RelatedProduct";
 
 const Product = () => {
   const { productId } = useParams();
@@ -119,8 +120,16 @@ const Product = () => {
       </div>
 
       {/* -------------------- Related Products ------------------ */}
-      <div className="mt-[174px]">
-        <Title text1={"RELATED"} text2={"PRODUCTS"} />
+      <div className="mt-20">
+        <div className="text-center text-3xl py-2">
+          <Title text1={"RELATED"} text2={"PRODUCTS"} />
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6 ">
+          <RelatedProduct
+            category={productData.category}
+            subCategory={productData.subCategory}
+          />
+        </div>
       </div>
     </div>
   ) : (

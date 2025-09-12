@@ -1,12 +1,24 @@
 import { useContext } from "react";
 import ShopContext from "../context/ShopContext";
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 
 const ProductItem = ({ id, img, name, price }) => {
   const { currency } = useContext(ShopContext);
+  const { productId } = useParams();
+
+  // if It is a product page then handleClick work and scrooll to top
+  const handleClick = () => {
+    if (productId) {
+      scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
-    <Link className="text-gray-700 cursor-pointer" to={`/product/${id}`}>
+    <Link
+      onClick={handleClick}
+      className="text-gray-700 cursor-pointer"
+      to={`/product/${id}`}
+    >
       <div className="overflow-hidden ">
         <img
           className="hover:scale-110 transition ease-in-out"
