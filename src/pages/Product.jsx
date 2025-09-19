@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
 import ShopContext from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Button from "../components/common/Button";
@@ -8,7 +8,7 @@ import RelatedProduct from "../components/RelatedProduct";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState("");
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
@@ -82,7 +82,9 @@ const Product = () => {
             </div>
           </div>
           <p className="mt-10">
-            <Button>ADD TO CART</Button>
+            <Button onClick={() => addToCart(productData?._id, size)}>
+              ADD TO CART
+            </Button>
           </p>
           <hr className="mt-8 sm:w-4/5 bg-gray-100" />
 
