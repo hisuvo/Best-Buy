@@ -3,7 +3,7 @@ import Title from "../components/common/Title";
 import Button from "../components/common/Button";
 
 const Login = () => {
-  const [currentState, setCurrentState] = useState("SingUp");
+  const [currentState, setCurrentState] = useState("Login");
   return (
     <div className="border-t pt-14">
       <form className="flex flex-col items-center gap-4 w-[90%] sm:w-96 m-auto text-gray-700">
