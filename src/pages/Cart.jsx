@@ -1,7 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ShopContext from "../context/ShopContext";
 import Title from "../components/common/Title";
 import { assets } from "../assets/assets";
+import CartTotal from "../components/CartTotal";
+import Button from "../components/common/Button";
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity } =
@@ -25,10 +27,10 @@ const Cart = () => {
     setCartData(temData);
   }, [cartItems, setCartData]);
 
-  return (
+  return cartData.length > 0 ? (
     <div className="border-t pt-14">
       <div className="text-2xl mb-3">
-        {cartData.length > 0 && <Title text1={"YOUR"} text2={"CART"} />}
+        {<Title text1={"YOUR"} text2={"CART"} />}
       </div>
 
       {/* cart item list here */}
@@ -66,6 +68,15 @@ const Cart = () => {
               </div>
 
               <input
+                onClick={(e) =>
+                  e.target.value === " " || e.target.value === "0"
+                    ? null
+                    : updateQuantity(
+                        item._id,
+                        item.size,
+                        Number(e.target.value)
+                      )
+                }
                 className="border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1"
                 type="number"
                 min={1}
@@ -82,6 +93,22 @@ const Cart = () => {
           );
         })}
       </div>
+
+      {/* cart total components */}
+      <div className="flex justify-end my-20">
+        <div className="w-full sm:w-[450px]">
+          <CartTotal />
+          <div className="text-end mt-8">
+            <Button>PROCEED TO CHECKOUT</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div>
+      <h2 className="text-2xl text-center my-20 text-gray-600">
+        Not select carts
+      </h2>
     </div>
   );
 };
