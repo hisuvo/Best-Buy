@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
 import { Toaster } from "react-hot-toast";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<Order />} />
         <Route path="/place-order" element={<PlaceOrder />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </div>
