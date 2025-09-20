@@ -4,6 +4,7 @@ import Title from "../components/common/Title";
 import { assets } from "../assets/assets";
 import CartTotal from "../components/CartTotal";
 import Button from "../components/common/Button";
+import { Link } from "react-router";
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity } =
@@ -99,7 +100,9 @@ const Cart = () => {
         <div className="w-full sm:w-[450px]">
           <CartTotal />
           <div className="text-end mt-8">
-            <Button>PROCEED TO CHECKOUT</Button>
+            <Link to={"/place-order"}>
+              <Button>PROCEED TO CHECKOUT</Button>
+            </Link>
           </div>
         </div>
       </div>
